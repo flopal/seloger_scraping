@@ -1,7 +1,6 @@
-import os, time
-import json
-import requests
+import os
 from typing import List
+import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
@@ -14,7 +13,7 @@ def select_louer():
 
 def fill_field_city(city: str):
     """Fill the field city with the city parameter.
-    
+
     Keyword arguments:
     city -- the city's name to add in the field"""
     driver.find_element_by_css_selector('#agatha_autocomplete_autocompleteUI__input').send_keys(city)
@@ -26,8 +25,8 @@ def fill_field_city(city: str):
     else:
         response = requests.get("https://autocomplete.svc.groupe-seloger.com/api/v2.0/auto/complete/fra/63/10/8/SeLoger?text=asnier")
         print('Voici la liste des villes disponibles:')
-        for city in [elt['Display'] for elt in response.json()]:
-            print(city)
+        for display_name in [elt['Display'] for elt in response.json()]:
+            print(display_name)
         select_louer()
 
 def fill_field_city_with_several_cities(cities: List[str]):
