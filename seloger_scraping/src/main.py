@@ -23,7 +23,7 @@ def fill_field_city(city: str):
         print(city)
         element.click()
     else:
-        response = requests.get("https://autocomplete.svc.groupe-seloger.com/api/v2.0/auto/complete/fra/63/10/8/SeLoger?text=asnier")
+        response = requests.get("https://autocomplete.svc.groupe-seloger.com/api/v2.0/auto/complete/fra/63/10/8/SeLoger?text=" + city)
         print('Voici la liste des villes disponibles:')
         for display_name in [elt['Display'] for elt in response.json()]:
             print(display_name)
