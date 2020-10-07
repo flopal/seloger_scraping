@@ -1,7 +1,7 @@
-from seloger_scraping.src.main import exemple
+# from seloger_scraping.src.main import exemple
 
-def run_seloger_scraping():
-    exemple()
+# def run_seloger_scraping():
+#     exemple()
 
-if __name__ == '__main__':
-    run_seloger_scraping()
+# if __name__ == '__main__':
+#     run_seloger_scraping()
