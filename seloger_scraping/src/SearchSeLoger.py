@@ -99,4 +99,5 @@ class SearchSeLoger(object):
         elif number >= 5:
             self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[2]/div[2]/div[24]/div/div[5]/label').click()
         else:
-            self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[2]/div[2]/div[24]/div/div[' + number + ']/label').click()
+            self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[2]/div[2]/div[24]/div/div[' + str(number) + ']/label').click()
+        self.driver.find_element_by_css_selector('.search_bar_room > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(1)').click()
