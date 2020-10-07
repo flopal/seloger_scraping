@@ -10,3 +10,5 @@ if __name__ == "__main__":
     searchSeLoger = SearchSeLoger(False)
     searchSeLoger.fill_field_city('Paris')
     searchSeLoger.uncheck_field_house()
+    searchSeLoger.confirm_search()
+    searchSeLoger.number_of_rooms(1)

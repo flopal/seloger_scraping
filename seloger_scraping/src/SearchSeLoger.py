@@ -27,6 +27,7 @@ class SearchSeLoger(object):
         self.driver = webdriver.Firefox(options=options, executable_path=executable_path_driver)
         self.driver.get("https://seloger.com")
         self.isLouer = False
+        self.isConfirm = False
 
 
     def select_louer(self):
@@ -80,3 +81,22 @@ class SearchSeLoger(object):
     def uncheck_field_appart(self):
         """Click on field appart to unchek it (default is check)."""
         self.driver.find_element_by_css_selector('#agatha_biens > div:nth-child(3) > div:nth-child(2) > label:nth-child(2)').click()
+
+
+    def confirm_search(self):
+        """Click on button search to confirm """
+        self.driver.find_element_by_css_selector('.b-btn').click()
+        self.isConfirm = True
+
+
+    def number_of_rooms(self, number:int):
+        """"""
+        if not self.isConfirm:
+            return
+        self.driver.find_element_by_css_selector('.search_bar_room > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > p:nth-child(1)').click()
+        if number < 2:
+            self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[2]/div[2]/div[24]/div/div[1]/label').click()
+        elif number >= 5:
+            self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[2]/div[2]/div[24]/div/div[5]/label').click()
+        else:
+            self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div/div/div/div/div/div[2]/div[5]/div[2]/div[2]/div[24]/div/div[' + number + ']/label').click()
